@@ -7,8 +7,8 @@ var lowerCaseChoices = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 // generate the generatePassword function
 function generatePassword(){
     //Questions to ask the user
-    var characterNumbers = prompt("How many characters do you want for your password?\nYour password needs to have at least 8 characters.");
-      if (characterNumbers>=8 && characterNumbers!==null){
+    var characterNumbers = prompt("How many characters do you want for your password?\nYour password needs to have AT LEAST 8 characters and NO more than 128 characters.");
+      if (characterNumbers>=8 && characterNumbers<=128 && characterNumbers!==null){
 
         var numbers = confirm("Click OK to include numbers");
         var upperCase = confirm("Click OK to include uppercase characters");
@@ -77,8 +77,8 @@ function generatePassword(){
         }
         return 0;
       }
-      else if (characterNumbers < 8 && characterNumbers !== null) {
-        alert("Your password has to be at least 8 character long!");
+      else if ((characterNumbers < 8 && characterNumbers !== null) ||(characterNumbers > 128 && characterNumbers !== null)) {
+        alert("Your password has to be AT LEAST 8 character long and NO more than 128 characters!");
       }
 }
 
