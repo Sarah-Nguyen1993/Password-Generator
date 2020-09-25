@@ -17,6 +17,7 @@ function generatePassword(){
 
         if (!numbers && !upperCase && !lowerCase && !specialCharacters) {
           alert("You have to include at least one type of characters!");
+          passwordText.value = "";
         }
         else{
       
@@ -79,7 +80,9 @@ function generatePassword(){
       }
       else if ((characterNumbers < 8 && characterNumbers !== null) ||(characterNumbers > 128 && characterNumbers !== null)) {
         alert("Your password has to be AT LEAST 8 character long and NO more than 128 characters!");
+        passwordText.value = ""
       }
+      return;
 }
 
 var generateBtn = document.querySelector("#generate");
