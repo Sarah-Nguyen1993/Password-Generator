@@ -8,7 +8,7 @@ var lowerCaseChoices = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 function generatePassword(){
     //Questions to ask the user
     var characterNumbers = prompt("How many characters do you want for your password?\nYour password needs to have AT LEAST 8 characters and NO more than 128 characters.");
-      if (characterNumbers>=8 && characterNumbers<=128 && characterNumbers!==null){
+      if (characterNumbers>=8 && characterNumbers<=128){
 
         var numbers = confirm("Click OK to include numbers");
         var upperCase = confirm("Click OK to include uppercase characters");
@@ -78,19 +78,26 @@ function generatePassword(){
         }
         return 0;
       }
-      else if ((characterNumbers < 8 && characterNumbers !== null) ||(characterNumbers > 128 && characterNumbers !== null)) {
-        alert("Your password has to be AT LEAST 8 character long and NO more than 128 characters!");
-        passwordText.value = ""
+      else if (characterNumbers === null){
+        passwordText.value = "";
+        return;
       }
-      return;
+      else if (characterNumbers < 8  ||characterNumbers > 128) {
+        console.log(characterNumbers);
+        alert("Your password has to be AT LEAST 8 character long and NO more than 128 characters!");
+        passwordText.value = "";
+      }
+      
 }
 
 var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  
 }
 
 // Add event listener to generate button
